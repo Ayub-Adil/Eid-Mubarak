@@ -1,0 +1,162 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eid Ul Adha Mubarak</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#0f172a,#14532d,#064e3b);
+      overflow:hidden;
+      position:relative;
+      color:white;
+    }
+
+    .moon{
+      position:absolute;
+      top:60px;
+      right:80px;
+      width:120px;
+      height:120px;
+      background:#fde047;
+      border-radius:50%;
+      box-shadow:0 0 40px #fde047;
+    }
+
+    .moon::before{
+      content:"";
+      position:absolute;
+      width:100px;
+      height:100px;
+      background:#0f172a;
+      border-radius:50%;
+      left:25px;
+    }
+
+    .container{
+      width:90%;
+      max-width:500px;
+      padding:45px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(12px);
+      text-align:center;
+      box-shadow:0 10px 40px rgba(0,0,0,0.5);
+      animation:float 4s ease-in-out infinite;
+      z-index:10;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0);
+      }
+      50%{
+        transform:translateY(-8px);
+      }
+    }
+
+    h1{
+      font-size:3rem;
+      color:#fde047;
+      margin-bottom:15px;
+    }
+
+    p{
+      color:#e2e8f0;
+      margin-bottom:30px;
+      line-height:1.7;
+    }
+
+    input{
+      width:100%;
+      padding:16px;
+      border:none;
+      outline:none;
+      border-radius:15px;
+      background:rgba(255,255,255,0.15);
+      color:white;
+      font-size:1rem;
+      margin-bottom:25px;
+    }
+
+    input::placeholder{
+      color:#d1d5db;
+    }
+
+    button{
+      padding:14px 35px;
+      border:none;
+      border-radius:50px;
+      background:#fde047;
+      color:#111827;
+      font-size:1rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:white;
+      transform:scale(1.05);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="moon"></div>
+
+  <div class="container">
+
+    <h1>🌙 Eid Ul Adha 🌙</h1>
+
+    <p>
+      Enter your name and receive a beautiful Eid greeting page ✨
+    </p>
+
+    <input type="text" id="username" placeholder="Enter Your Name">
+
+    <button onclick="generateGreeting()">
+      Generate Greeting 🎉
+    </button>
+
+  </div>
+
+  <script>
+
+    function generateGreeting(){
+
+      let name = document.getElementById("username").value;
+
+      if(name === ""){
+        alert("Please enter your name!");
+        return;
+      }
+
+      localStorage.setItem("eidName", name);
+
+      window.location.href = "greeting.html";
+    }
+
+  </script>
+
+</body>
+</html>

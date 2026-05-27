@@ -1,0 +1,322 @@
+<!-- greeting.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eid Mubarak</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:linear-gradient(180deg,#020617,#052e16,#064e3b,#022c22);
+      color:white;
+      overflow-x:hidden;
+      font-family:'Poppins',sans-serif;
+    }
+
+    /* Stars */
+
+    .stars span{
+      position:absolute;
+      width:3px;
+      height:3px;
+      background:white;
+      border-radius:50%;
+      animation:twinkle 3s infinite;
+    }
+
+    @keyframes twinkle{
+      0%,100%{
+        opacity:0.2;
+      }
+      50%{
+        opacity:1;
+      }
+    }
+
+    /* Hero */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:40px;
+      position:relative;
+    }
+
+    .hero-content{
+      max-width:900px;
+      z-index:2;
+    }
+
+    .moon{
+      position:absolute;
+      top:80px;
+      right:120px;
+      width:180px;
+      height:180px;
+      background:#fde047;
+      border-radius:50%;
+      box-shadow:0 0 60px #fde047;
+    }
+
+    .moon::before{
+      content:"";
+      position:absolute;
+      width:150px;
+      height:150px;
+      background:#020617;
+      border-radius:50%;
+      left:40px;
+    }
+
+    h1{
+      font-size:5rem;
+      font-family:'Cinzel',serif;
+      color:#fde047;
+      margin-bottom:20px;
+      text-shadow:0 0 25px rgba(253,224,71,0.8);
+      animation:glow 2s infinite alternate;
+    }
+
+    @keyframes glow{
+      from{
+        text-shadow:0 0 15px rgba(253,224,71,0.5);
+      }
+      to{
+        text-shadow:0 0 35px rgba(253,224,71,1);
+      }
+    }
+
+    .name{
+      font-size:2.5rem;
+      margin-bottom:25px;
+      color:#ffffff;
+    }
+
+    .hero p{
+      font-size:1.2rem;
+      line-height:2;
+      color:#e2e8f0;
+    }
+
+    .scroll-btn{
+      display:inline-block;
+      margin-top:40px;
+      padding:15px 40px;
+      border-radius:50px;
+      background:#fde047;
+      color:#111827;
+      text-decoration:none;
+      font-weight:700;
+      transition:0.3s;
+    }
+
+    .scroll-btn:hover{
+      transform:scale(1.08);
+      background:white;
+    }
+
+    /* Sections */
+
+    section{
+      padding:100px 10%;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(10px);
+      padding:40px;
+      border-radius:30px;
+      margin-bottom:40px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card h2{
+      color:#fde047;
+      font-size:2rem;
+      margin-bottom:20px;
+    }
+
+    .card p{
+      line-height:2;
+      color:#f1f5f9;
+      font-size:1.1rem;
+    }
+
+    /* Footer */
+
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      background:#02140f;
+      color:#94a3b8;
+    }
+
+    footer h2{
+      color:#fde047;
+      margin-bottom:15px;
+    }
+
+    @media(max-width:768px){
+
+      h1{
+        font-size:3rem;
+      }
+
+      .name{
+        font-size:1.7rem;
+      }
+
+      .moon{
+        width:100px;
+        height:100px;
+        right:20px;
+      }
+
+      .moon::before{
+        width:80px;
+        height:80px;
+      }
+
+      section{
+        padding:70px 20px;
+      }
+
+      .card{
+        padding:25px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Stars -->
+
+  <div class="stars">
+    <span style="top:10%;left:15%;"></span>
+    <span style="top:20%;left:80%;"></span>
+    <span style="top:30%;left:40%;"></span>
+    <span style="top:50%;left:70%;"></span>
+    <span style="top:65%;left:20%;"></span>
+    <span style="top:80%;left:60%;"></span>
+    <span style="top:15%;left:55%;"></span>
+    <span style="top:75%;left:85%;"></span>
+  </div>
+
+  <!-- Hero Section -->
+
+  <div class="hero">
+
+    <div class="moon"></div>
+
+    <div class="hero-content">
+
+      <h1>Eid Ul Adha Mubarak</h1>
+
+      <div class="name" id="userName"></div>
+
+      <p>
+        May this holy occasion bring unlimited happiness,
+        endless blessings, peace, success, and prosperity
+        into your life and your family's life ✨
+      </p>
+
+      <a href="#blessings" class="scroll-btn">
+        Scroll For More 🌙
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- Blessings Section -->
+
+  <section id="blessings">
+
+    <div class="card">
+      <h2>🌟 A Special Prayer</h2>
+
+      <p>
+        On this beautiful and sacred festival of sacrifice,
+        may Allah accept all your prayers, forgive your sins,
+        and fill your heart with peace and faith.
+        <br><br>
+        May every step you take lead toward success,
+        happiness, and endless opportunities.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>💖 Happiness & Family</h2>
+
+      <p>
+        Eid is not only a celebration but also a reminder
+        of love, unity, kindness, and togetherness.
+        <br><br>
+        May your home always stay filled with laughter,
+        smiles, delicious food, warm hugs,
+        and unforgettable memories with your loved ones.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>✨ Dreams & Success</h2>
+
+      <p>
+        May Allah bless your future with unlimited success,
+        good health, positivity, and strength.
+        <br><br>
+        May every dream you wish for become reality,
+        and may your life shine brighter than the Eid moon 🌙
+      </p>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+
+  <footer>
+
+    <h2>🌙 Eid Mubarak 🌙</h2>
+
+    <p>
+      Sending love, prayers, and happiness to you and your family ❤️
+    </p>
+
+  </footer>
+
+  <script>
+
+    let name = localStorage.getItem("eidName");
+
+    document.getElementById("userName").innerHTML =
+    `Dear ${name} 🎉`;
+
+  </script>
+
+</body>
+</html>
