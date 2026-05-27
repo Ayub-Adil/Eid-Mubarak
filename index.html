@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eid Ul Adha Mubarak</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
 
@@ -19,48 +19,73 @@
     }
 
     body{
-      height:100vh;
+      min-height:100vh;
+      background:linear-gradient(180deg,#020617,#052e16,#064e3b);
       display:flex;
       justify-content:center;
       align-items:center;
-      background:linear-gradient(135deg,#0f172a,#14532d,#064e3b);
+      padding:20px;
       overflow:hidden;
       position:relative;
       color:white;
     }
 
+    /* Stars */
+
+    .stars span{
+      position:absolute;
+      width:3px;
+      height:3px;
+      background:white;
+      border-radius:50%;
+      animation:twinkle 3s infinite;
+    }
+
+    @keyframes twinkle{
+      0%,100%{
+        opacity:0.3;
+      }
+      50%{
+        opacity:1;
+      }
+    }
+
+    /* Moon */
+
     .moon{
       position:absolute;
-      top:60px;
-      right:80px;
-      width:120px;
-      height:120px;
+      top:40px;
+      right:20px;
+      width:90px;
+      height:90px;
       background:#fde047;
       border-radius:50%;
-      box-shadow:0 0 40px #fde047;
+      box-shadow:0 0 30px #fde047;
     }
 
     .moon::before{
       content:"";
       position:absolute;
-      width:100px;
-      height:100px;
-      background:#0f172a;
+      width:75px;
+      height:75px;
+      background:#020617;
       border-radius:50%;
-      left:25px;
+      left:18px;
     }
 
+    /* Card */
+
     .container{
-      width:90%;
-      max-width:500px;
-      padding:45px;
-      border-radius:30px;
+      width:100%;
+      max-width:380px;
+      padding:35px 25px;
+      border-radius:25px;
       background:rgba(255,255,255,0.08);
       backdrop-filter:blur(12px);
       text-align:center;
-      box-shadow:0 10px 40px rgba(0,0,0,0.5);
-      animation:float 4s ease-in-out infinite;
+      box-shadow:0 10px 30px rgba(0,0,0,0.5);
       z-index:10;
+      animation:float 4s ease-in-out infinite;
     }
 
     @keyframes float{
@@ -73,48 +98,52 @@
     }
 
     h1{
-      font-size:3rem;
+      font-size:2.2rem;
       color:#fde047;
+      font-family:'Cinzel',serif;
       margin-bottom:15px;
+      line-height:1.4;
     }
 
     p{
       color:#e2e8f0;
-      margin-bottom:30px;
-      line-height:1.7;
+      line-height:1.8;
+      font-size:0.95rem;
+      margin-bottom:25px;
     }
 
     input{
       width:100%;
-      padding:16px;
+      padding:15px;
       border:none;
       outline:none;
-      border-radius:15px;
-      background:rgba(255,255,255,0.15);
+      border-radius:14px;
+      background:rgba(255,255,255,0.12);
       color:white;
       font-size:1rem;
-      margin-bottom:25px;
+      margin-bottom:20px;
     }
 
     input::placeholder{
-      color:#d1d5db;
+      color:#cbd5e1;
     }
 
     button{
-      padding:14px 35px;
+      width:100%;
+      padding:15px;
       border:none;
       border-radius:50px;
       background:#fde047;
       color:#111827;
       font-size:1rem;
-      font-weight:600;
+      font-weight:700;
       cursor:pointer;
       transition:0.3s;
     }
 
     button:hover{
       background:white;
-      transform:scale(1.05);
+      transform:scale(1.03);
     }
 
   </style>
@@ -122,14 +151,29 @@
 
 <body>
 
+  <!-- Stars -->
+
+  <div class="stars">
+    <span style="top:10%;left:20%;"></span>
+    <span style="top:15%;left:75%;"></span>
+    <span style="top:35%;left:15%;"></span>
+    <span style="top:50%;left:85%;"></span>
+    <span style="top:70%;left:25%;"></span>
+    <span style="top:85%;left:65%;"></span>
+  </div>
+
+  <!-- Moon -->
+
   <div class="moon"></div>
+
+  <!-- Main Card -->
 
   <div class="container">
 
-    <h1>🌙 Eid Ul Adha 🌙</h1>
+    <h1>🌙 Eid Ul Adha Mubarak 🌙</h1>
 
     <p>
-      Enter your name and receive a beautiful Eid greeting page ✨
+      Enter your name and receive a beautiful personalized Eid greeting ✨
     </p>
 
     <input type="text" id="username" placeholder="Enter Your Name">
@@ -142,21 +186,33 @@
 
   <script>
 
-    function generateGreeting(){
+  function generateGreeting(){
 
-      let name = document.getElementById("username").value;
+    let name = document.getElementById("username").value;
 
-      if(name === ""){
-        alert("Please enter your name!");
-        return;
-      }
-
-      localStorage.setItem("eidName", name);
-
-      window.location.href = "greeting.html";
+    if(name === ""){
+      alert("Please enter your name!");
+      return;
     }
 
-  </script>
+    // Save current user name
+    localStorage.setItem("eidName", name);
+
+    // Save all visitor names
+    let visitors = JSON.parse(localStorage.getItem("eidVisitors")) || [];
+
+    visitors.push({
+      name: name,
+      time: new Date().toLocaleString()
+    });
+
+    localStorage.setItem("eidVisitors", JSON.stringify(visitors));
+
+    // Redirect
+    window.location.href = "greeting.html";
+  }
+
+</script>
 
 </body>
 </html>

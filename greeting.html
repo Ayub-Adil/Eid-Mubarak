@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eid Mubarak</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
 
@@ -41,14 +41,14 @@
 
     @keyframes twinkle{
       0%,100%{
-        opacity:0.2;
+        opacity:0.3;
       }
       50%{
         opacity:1;
       }
     }
 
-    /* Hero */
+    /* Hero Section */
 
     .hero{
       min-height:100vh;
@@ -56,70 +56,63 @@
       justify-content:center;
       align-items:center;
       text-align:center;
-      padding:40px;
+      padding:25px;
       position:relative;
-    }
-
-    .hero-content{
-      max-width:900px;
-      z-index:2;
     }
 
     .moon{
       position:absolute;
-      top:80px;
-      right:120px;
-      width:180px;
-      height:180px;
+      top:35px;
+      right:15px;
+      width:90px;
+      height:90px;
       background:#fde047;
       border-radius:50%;
-      box-shadow:0 0 60px #fde047;
+      box-shadow:0 0 30px #fde047;
     }
 
     .moon::before{
       content:"";
       position:absolute;
-      width:150px;
-      height:150px;
+      width:75px;
+      height:75px;
       background:#020617;
       border-radius:50%;
-      left:40px;
+      left:18px;
+    }
+
+    .hero-content{
+      z-index:10;
+      width:100%;
+      max-width:420px;
     }
 
     h1{
-      font-size:5rem;
-      font-family:'Cinzel',serif;
+      font-size:2.4rem;
+      line-height:1.5;
       color:#fde047;
+      font-family:'Cinzel',serif;
       margin-bottom:20px;
-      text-shadow:0 0 25px rgba(253,224,71,0.8);
-      animation:glow 2s infinite alternate;
-    }
-
-    @keyframes glow{
-      from{
-        text-shadow:0 0 15px rgba(253,224,71,0.5);
-      }
-      to{
-        text-shadow:0 0 35px rgba(253,224,71,1);
-      }
+      text-shadow:0 0 20px rgba(253,224,71,0.7);
     }
 
     .name{
-      font-size:2.5rem;
-      margin-bottom:25px;
-      color:#ffffff;
+      font-size:1.5rem;
+      margin-bottom:20px;
+      color:white;
+      font-weight:600;
     }
 
     .hero p{
-      font-size:1.2rem;
+      font-size:1rem;
       line-height:2;
       color:#e2e8f0;
     }
 
     .scroll-btn{
       display:inline-block;
-      margin-top:40px;
-      padding:15px 40px;
+      margin-top:35px;
+      padding:14px 30px;
       border-radius:50px;
       background:#fde047;
       color:#111827;
@@ -129,84 +122,61 @@
     }
 
     .scroll-btn:hover{
-      transform:scale(1.08);
       background:white;
+      transform:scale(1.05);
     }
 
-    /* Sections */
+    /* Cards */
 
     section{
-      padding:100px 10%;
+      padding:20px;
     }
 
     .card{
       background:rgba(255,255,255,0.08);
       backdrop-filter:blur(10px);
-      padding:40px;
-      border-radius:30px;
-      margin-bottom:40px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.4);
-      transition:0.4s;
+      border-radius:25px;
+      padding:25px;
+      margin-bottom:25px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+      animation:fadeUp 1s ease;
     }
 
-    .card:hover{
-      transform:translateY(-10px);
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
     .card h2{
       color:#fde047;
-      font-size:2rem;
-      margin-bottom:20px;
+      margin-bottom:15px;
+      font-size:1.5rem;
     }
 
     .card p{
       line-height:2;
       color:#f1f5f9;
-      font-size:1.1rem;
+      font-size:0.96rem;
     }
 
     /* Footer */
 
     footer{
       text-align:center;
-      padding:50px 20px;
-      background:#02140f;
+      padding:40px 20px;
       color:#94a3b8;
     }
 
     footer h2{
       color:#fde047;
-      margin-bottom:15px;
-    }
-
-    @media(max-width:768px){
-
-      h1{
-        font-size:3rem;
-      }
-
-      .name{
-        font-size:1.7rem;
-      }
-
-      .moon{
-        width:100px;
-        height:100px;
-        right:20px;
-      }
-
-      .moon::before{
-        width:80px;
-        height:80px;
-      }
-
-      section{
-        padding:70px 20px;
-      }
-
-      .card{
-        padding:25px;
-      }
+      margin-bottom:10px;
+      font-size:1.8rem;
     }
 
   </style>
@@ -217,17 +187,15 @@
   <!-- Stars -->
 
   <div class="stars">
-    <span style="top:10%;left:15%;"></span>
-    <span style="top:20%;left:80%;"></span>
-    <span style="top:30%;left:40%;"></span>
-    <span style="top:50%;left:70%;"></span>
-    <span style="top:65%;left:20%;"></span>
-    <span style="top:80%;left:60%;"></span>
-    <span style="top:15%;left:55%;"></span>
-    <span style="top:75%;left:85%;"></span>
+    <span style="top:10%;left:10%;"></span>
+    <span style="top:18%;left:75%;"></span>
+    <span style="top:35%;left:25%;"></span>
+    <span style="top:55%;left:85%;"></span>
+    <span style="top:72%;left:15%;"></span>
+    <span style="top:90%;left:60%;"></span>
   </div>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
 
   <div class="hero">
 
@@ -235,63 +203,67 @@
 
     <div class="hero-content">
 
-      <h1>Eid Ul Adha Mubarak</h1>
+      <h1>🌙 Eid Ul Adha Mubarak 🌙</h1>
 
       <div class="name" id="userName"></div>
 
       <p>
-        May this holy occasion bring unlimited happiness,
-        endless blessings, peace, success, and prosperity
-        into your life and your family's life ✨
+        May this Eid bring peace, joy, blessings,
+        success, and endless happiness into your life ✨
       </p>
 
-      <a href="#blessings" class="scroll-btn">
-        Scroll For More 🌙
+      <a href="#cards" class="scroll-btn">
+        Read Blessings ❤️
       </a>
 
     </div>
 
   </div>
 
-  <!-- Blessings Section -->
+  <!-- Greeting Cards -->
 
-  <section id="blessings">
+  <section id="cards">
 
     <div class="card">
-      <h2>🌟 A Special Prayer</h2>
+      <h2>✨ Special Wishes</h2>
 
       <p>
-        On this beautiful and sacred festival of sacrifice,
-        may Allah accept all your prayers, forgive your sins,
-        and fill your heart with peace and faith.
-        <br><br>
-        May every step you take lead toward success,
-        happiness, and endless opportunities.
+        May Allah accept your prayers,
+        forgive your sins,
+        and fill your life with happiness,
+        positivity, and success.
       </p>
     </div>
 
     <div class="card">
-      <h2>💖 Happiness & Family</h2>
+      <h2>🌙 Peace & Happiness</h2>
 
       <p>
-        Eid is not only a celebration but also a reminder
-        of love, unity, kindness, and togetherness.
-        <br><br>
-        May your home always stay filled with laughter,
-        smiles, delicious food, warm hugs,
-        and unforgettable memories with your loved ones.
+        May your home always stay filled with love,
+        warm smiles, delicious food,
+        beautiful moments,
+        and unforgettable memories with your family ❤️
       </p>
     </div>
 
     <div class="card">
-      <h2>✨ Dreams & Success</h2>
+      <h2>💖 Endless Blessings</h2>
 
       <p>
-        May Allah bless your future with unlimited success,
-        good health, positivity, and strength.
-        <br><br>
-        May every dream you wish for become reality,
-        and may your life shine brighter than the Eid moon 🌙
+        Wishing you health,
+        prosperity,
+        strength,
+        and countless blessings on this beautiful Eid Ul Adha 🌙
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🎉 Dreams Come True</h2>
+
+      <p>
+        May all your dreams turn into reality,
+        and may your future shine brighter
+        than the beautiful Eid moon ✨
       </p>
     </div>
 

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor List</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#020617;
+      color:white;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+      color:#fde047;
+      margin-bottom:30px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.08);
+      padding:20px;
+      border-radius:20px;
+      margin-bottom:15px;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .name{
+      font-size:1.2rem;
+      font-weight:600;
+      color:#fde047;
+    }
+
+    .time{
+      margin-top:8px;
+      color:#cbd5e1;
+      font-size:0.9rem;
+    }
+
+    .empty{
+      text-align:center;
+      color:#94a3b8;
+      margin-top:40px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>🌙 Eid Visitors List</h1>
+
+  <div id="visitorList"></div>
+
+  <script>
+
+    let visitors = JSON.parse(localStorage.getItem("eidVisitors")) || [];
+
+    let container = document.getElementById("visitorList");
+
+    if(visitors.length === 0){
+
+      container.innerHTML =
+      `<p class="empty">No visitors yet ✨</p>`;
+
+    }
+
+    else{
+
+      visitors.reverse().forEach(visitor => {
+
+        container.innerHTML += `
+
+          <div class="card">
+
+            <div class="name">
+              ${visitor.name}
+            </div>
+
+            <div class="time">
+              ${visitor.time}
+            </div>
+
+          </div>
+
+        `;
+      });
+    }
+
+  </script>
+
+</body>
+</html>
